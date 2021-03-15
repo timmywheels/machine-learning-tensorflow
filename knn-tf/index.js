@@ -3,9 +3,16 @@ const tf = require('@tensorflow/tfjs')
 const loadCSV = require('./load-csv')
 
 
-function knn(features, labels, predictionPoint, k = 2) {
+function knn(features, labels, predictionPoint, k) {
+
+    const { mean, variance } = tf.moments(features, 0)
+    const standardDeviation = variance.pow(0.5)
+    const scaledPrediction = predictionPoint.sub(mean).div(standardDeviation)
+
     return features
-        .sub(predictionPoint) // subtract prediction from each lat/long to get distance
+        .sub(mean) // add "feature scaling" by standardizing data
+        .div(standardDeviation) // standardization = (value - avg) / standardDeviation
+        .sub(scaledPrediction) // subtract prediction from each lat/long to get distance
         .pow(2) // square values
         .sum(1) // sum values for row
         .pow(.5) // get square root of each
@@ -20,7 +27,7 @@ function knn(features, labels, predictionPoint, k = 2) {
 let { features, labels, testFeatures, testLabels } = loadCSV('kc_house_data.csv', {
     shuffle: true,
     splitTest: 10,
-    dataColumns: ['lat', 'long'],
+    dataColumns: ['lat', 'long', 'sqft_lot', 'sqft_living'],
     labelColumns: ['price']
 })
 
@@ -31,7 +38,7 @@ features = tf.tensor(features)
 labels = tf.tensor(labels)
 testFeatures.forEach((testPoint, i) => {
     const result = knn(features, labels, tf.tensor(testPoint), 10)
-    const err = (((testLabels[i][0] - result) / testLabels[i][0]) * 100).toFixed(2)
+    const err = (((testLabels[i][0] - result) / testLabels[i][0]) * 100)
     console.log(`Accuracy: ${err}%`)
     console.log(`Prediction: ${result} -> Actual: ${testLabels[i][0]}`)
     console.log("=========================")

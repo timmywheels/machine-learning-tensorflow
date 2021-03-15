@@ -4,9 +4,6 @@
     <list default="true" id="bf6e9239-717e-42ef-8a8f-d8759969baee" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/knn-tf/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/knn-tf/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/knn-tf/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/knn-tf/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/knn-tf/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/knn-tf/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/plinko/score.js" beforeDir="false" afterPath="$PROJECT_DIR$/plinko/score.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,7 +107,7 @@
       <workItem from="1615475062634" duration="458000" />
       <workItem from="1615475544974" duration="3882000" />
       <workItem from="1615562440036" duration="13321000" />
-      <workItem from="1615818463680" duration="2347000" />
+      <workItem from="1615818463680" duration="4249000" />
     </task>
     <servers />
   </component>
