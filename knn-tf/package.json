@@ -11,7 +11,7 @@
   "dependencies": {
     "@tensorflow/tfjs": "^3.3.0",
     "@tensorflow/tfjs-node": "^0.1.17",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.19",
     "shuffle-seed": "^1.1.6"
   }
 }
